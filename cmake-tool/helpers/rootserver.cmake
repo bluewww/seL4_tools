@@ -145,7 +145,9 @@ function(DeclareRootserver rootservername)
                         CROSS_COMPILE=${CROSS_COMPILER_PREFIX} PLATFORM="${KernelOpenSBIPlatform}"
                         PLATFORM_RISCV_XLEN=${OPENSBI_PLAT_XLEN}
                         PLATFORM_RISCV_ISA=${OPENSBI_PLAT_ISA}
-                        PLATFORM_RISCV_ABI=${OPENSBI_PLAT_ABI} FW_PAYLOAD_PATH="${OPENSBI_PLAYLOAD}"
+                        PLATFORM_RISCV_ABI=${OPENSBI_PLAT_ABI}
+			FW_PAYLOAD_PATH="${OPENSBI_PLAYLOAD}"
+                        FW_FDT_PATH="${CMAKE_BINARY_DIR}/kernel/kernel.dtb"
                     DEPENDS "${elf_target_file}" elfloader ${USES_TERMINAL_DEBUG}
                 )
                 # overwrite elf_target_file, it's no longer the ElfLoader but
